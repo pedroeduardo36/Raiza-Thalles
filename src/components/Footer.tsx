@@ -12,7 +12,7 @@ export default function Footer() {
         <p className="font-headline text-lg font-semibold text-foreground">
           Vilamargo Wedding
           <br />
-          (Júlia & Pedro)
+          (Raiza & Thalles)
         </p>
         <p>© 2026</p>
       </div>

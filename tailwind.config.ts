@@ -20,6 +20,7 @@ export default {
         body: ['PT Sans', 'sans-serif'],
         headline: ['Literata', 'serif'],
         code: ['monospace'],
+        cinzel: ['"Cinzel Decorative"', 'serif'],
       },
       colors: {
         background: 'hsl(var(--background))',
