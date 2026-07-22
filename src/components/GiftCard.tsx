@@ -34,6 +34,7 @@ import {
   Gift as GiftIcon,
   PackageCheck,
   Edit2,
+  Trash2,
 } from "lucide-react";
 import type { Gift } from "@/lib/gifts";
 import qrCode from "@/assets/thalles_pix.jpeg";
@@ -58,9 +59,10 @@ interface GiftCardProps {
       store_url?: string;
     }
   ) => void;
+  onDelete?: (giftId: number) => void;
 }
 
-export default function GiftCard({ gift, onContribute, onEdit }: GiftCardProps) {
+export default function GiftCard({ gift, onContribute, onEdit, onDelete }: GiftCardProps) {
   const [contribution, setContribution] = useState("");
   const [contributorName, setContributorName] = useState("");
   const [message, setMessage] = useState("");
@@ -234,8 +236,21 @@ export default function GiftCard({ gift, onContribute, onEdit }: GiftCardProps) 
                 />
               </div>
             </div>
-            <DialogFooter className="mt-4">
-              <Button onClick={handleEditSubmit} className="w-full">
+            <DialogFooter className="mt-4 flex flex-col sm:flex-row gap-2 sm:justify-between w-full">
+              {onDelete && (
+                <Button 
+                  variant="destructive" 
+                  onClick={() => {
+                    setIsEditOpen(false);
+                    onDelete(gift.id);
+                  }} 
+                  className="w-full sm:w-auto"
+                >
+                  <Trash2 className="w-4 h-4 mr-2" />
+                  Excluir Presente
+                </Button>
+              )}
+              <Button onClick={handleEditSubmit} className="w-full sm:w-auto">
                 Salvar Alterações
               </Button>
             </DialogFooter>

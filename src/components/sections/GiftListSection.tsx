@@ -26,6 +26,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
+import { ToastAction } from "@/components/ui/toast";
 
 export default function GiftListSection() {
   const [gifts, setGifts] = useState<Gift[]>(
@@ -44,6 +46,34 @@ export default function GiftListSection() {
   const [newGiftDesc, setNewGiftDesc] = useState("");
   const [newGiftStore, setNewGiftStore] = useState("");
   const [isSavingNewGift, setIsSavingNewGift] = useState(false);
+
+  const { toast } = useToast();
+
+  const handleUndoDelete = async (giftId: number) => {
+    const { error } = await supabase.from("gift_overrides").upsert({
+      gift_id: giftId,
+      is_deleted: false,
+      updated_at: new Date().toISOString(),
+    });
+    if (error) {
+      alert("Erro ao desfazer exclusão.");
+    } else {
+      fetchGiftsData();
+    }
+  };
+
+  const handleUndoAdd = async (giftId: number) => {
+    const { error } = await supabase.from("gift_overrides").upsert({
+      gift_id: giftId,
+      is_deleted: true,
+      updated_at: new Date().toISOString(),
+    });
+    if (error) {
+      alert("Erro ao desfazer adição.");
+    } else {
+      fetchGiftsData();
+    }
+  };
 
   useEffect(() => {
     fetchGiftsData();
@@ -103,7 +133,7 @@ export default function GiftListSection() {
       if (overridesResponse.data) {
         overridesResponse.data.forEach((item) => {
           if (item.is_new) {
-            newGifts.push(item);
+            if (!item.is_deleted) newGifts.push(item);
           } else {
             overridesMap[item.gift_id] = item;
           }
@@ -112,6 +142,7 @@ export default function GiftListSection() {
 
       const staticGifts = allGifts
         .filter((g) => g.category === "casamento")
+        .filter((gift) => !overridesMap[gift.id]?.is_deleted)
         .map((gift) => {
           const override = overridesMap[gift.id];
           return {
@@ -216,6 +247,36 @@ export default function GiftListSection() {
     }
   };
 
+  const handleDelete = async (giftId: number) => {
+    if (!confirm("Tem certeza que deseja excluir este presente?")) return;
+
+    // Atualização otimista
+    setGifts((prev) => prev.filter((g) => g.id !== giftId));
+
+    // Salvar no banco
+    const { error } = await supabase.from("gift_overrides").upsert({
+      gift_id: giftId,
+      is_deleted: true,
+      updated_at: new Date().toISOString(),
+    });
+
+    if (error) {
+      console.error("Erro ao excluir presente:", error);
+      alert("Erro ao excluir. Tente novamente.");
+      fetchGiftsData();
+    } else {
+      toast({
+        title: "Presente excluído",
+        description: "O presente foi removido da lista.",
+        action: (
+          <ToastAction altText="Desfazer exclusão" onClick={() => handleUndoDelete(giftId)}>
+            Desfazer
+          </ToastAction>
+        ),
+      });
+    }
+  };
+
   const handleOpenNewGiftModal = () => {
     setNewGiftName("");
     setNewGiftImage("");
@@ -251,6 +312,15 @@ export default function GiftListSection() {
     } else {
       setIsNewGiftModalOpen(false);
       fetchGiftsData();
+      toast({
+        title: "Presente adicionado",
+        description: `${newGiftName} foi adicionado à lista.`,
+        action: (
+          <ToastAction altText="Desfazer adição" onClick={() => handleUndoAdd(newGiftId)}>
+            Desfazer
+          </ToastAction>
+        ),
+      });
     }
   };
 
@@ -416,6 +486,7 @@ export default function GiftListSection() {
                   gift={gift}
                   onContribute={handleContribute}
                   onEdit={handleEdit}
+                  onDelete={handleDelete}
                 />
               ))}
             </div>
