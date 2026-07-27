@@ -50,6 +50,7 @@ export default function GiftListSection() {
   const { toast } = useToast();
 
   const handleUndoDelete = async (giftId: number) => {
+    if (!supabase) return;
     const { error } = await supabase.from("gift_overrides").upsert({
       gift_id: giftId,
       is_deleted: false,
@@ -63,6 +64,7 @@ export default function GiftListSection() {
   };
 
   const handleUndoAdd = async (giftId: number) => {
+    if (!supabase) return;
     const { error } = await supabase.from("gift_overrides").upsert({
       gift_id: giftId,
       is_deleted: true,
@@ -77,6 +79,8 @@ export default function GiftListSection() {
 
   useEffect(() => {
     fetchGiftsData();
+
+    if (!supabase) return;
 
     const channel = supabase
       .channel("realtime_contributions")
@@ -102,12 +106,19 @@ export default function GiftListSection() {
       .subscribe();
 
     return () => {
-      supabase.removeChannel(channel);
-      supabase.removeChannel(overridesChannel);
+      if (supabase) {
+        supabase.removeChannel(channel);
+        supabase.removeChannel(overridesChannel);
+      }
     };
   }, []);
 
   const fetchGiftsData = async () => {
+    if (!supabase) {
+      setGifts(allGifts.filter((g) => g.category === "casamento"));
+      setIsLoading(false);
+      return;
+    }
     try {
       const [contribResponse, overridesResponse] = await Promise.all([
         supabase.from("contributions").select("gift_id, amount"),
@@ -192,6 +203,7 @@ export default function GiftListSection() {
     );
 
     // Salvar no Banco
+    if (!supabase) return;
     const { error } = await supabase.from("contributions").insert([
       {
         gift_id: giftId,
@@ -234,6 +246,7 @@ export default function GiftListSection() {
     );
 
     // Salvar no Banco
+    if (!supabase) return;
     const { error } = await supabase.from("gift_overrides").upsert({
       gift_id: giftId,
       ...updates,
@@ -254,6 +267,7 @@ export default function GiftListSection() {
     setGifts((prev) => prev.filter((g) => g.id !== giftId));
 
     // Salvar no banco
+    if (!supabase) return;
     const { error } = await supabase.from("gift_overrides").upsert({
       gift_id: giftId,
       is_deleted: true,
@@ -293,6 +307,11 @@ export default function GiftListSection() {
     // Gera um ID negativo aleatório seguro para o tipo INTEGER do Postgres
     const newGiftId = -Math.floor(Math.random() * 1000000);
     
+    if (!supabase) {
+      setIsSavingNewGift(false);
+      alert("Erro: Banco de dados não configurado.");
+      return;
+    }
     const { error } = await supabase.from("gift_overrides").insert({
       gift_id: newGiftId,
       name: newGiftName,

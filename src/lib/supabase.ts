@@ -1,15 +1,21 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error("As variáveis de ambiente do Supabase não foram encontradas. Verifique o arquivo .env.local.");
+let supabase: SupabaseClient | null = null;
+
+if (supabaseUrl && supabaseAnonKey) {
+  supabase = createClient(supabaseUrl, supabaseAnonKey);
+} else {
+  console.warn(
+    "Aviso: As variáveis de ambiente do Supabase (NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY) não foram encontradas. " +
+    "Funcionalidades que dependem do banco de dados estarão indisponíveis."
+  );
 }
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+export { supabase };
 
-// ... resto do arquivo
-if (typeof window !== 'undefined') {
+if (typeof window !== 'undefined' && supabase) {
   (window as any).supabase = supabase;
 }
