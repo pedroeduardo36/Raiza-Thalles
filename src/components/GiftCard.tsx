@@ -27,14 +27,10 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import {
-  QrCode,
   ShoppingCart,
   CheckCircle,
-  Link2,
   Gift as GiftIcon,
   PackageCheck,
-  Edit2,
-  Trash2,
 } from "lucide-react";
 import type { Gift } from "@/lib/gifts";
 import qrCode from "@/assets/thalles_pix.jpeg";
@@ -49,44 +45,21 @@ interface GiftCardProps {
     name: string,
     message: string,
   ) => void;
-  onEdit?: (
-    giftId: number,
-    updates: {
-      name?: string;
-      image?: string;
-      goal?: number;
-      description?: string;
-      store_url?: string;
-    }
-  ) => void;
-  onDelete?: (giftId: number) => void;
 }
 
-export default function GiftCard({ gift, onContribute, onEdit, onDelete }: GiftCardProps) {
+export default function GiftCard({ gift, onContribute }: GiftCardProps) {
   const [contribution, setContribution] = useState("");
   const [contributorName, setContributorName] = useState("");
   const [message, setMessage] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [isPhysicalOpen, setIsPhysicalOpen] = useState(false);
-  
-  // Edit State
-  const [isEditOpen, setIsEditOpen] = useState(false);
-  const [editName, setEditName] = useState(gift.name);
-  const [editImage, setEditImage] = useState(gift.image);
-  const [editGoal, setEditGoal] = useState(gift.goal.toString());
-  const [editDescription, setEditDescription] = useState(gift.description);
-  const [editStoreUrl, setEditStoreUrl] = useState(gift.storeUrl || "");
 
   const { toast } = useToast();
 
-  const pricePerQuota = 100; // Valor fixo da cota
-  const totalQuotas = gift.goal / pricePerQuota;
-  const donatedQuotas = Math.floor(gift.current / pricePerQuota);
   const progress = Math.min((gift.current / gift.goal) * 100, 100);
   const isGoalReached = gift.current >= gift.goal;
   const remainingAmount = Math.max(gift.goal - gift.current, 0);
 
-  // Gerencia o valor automático para o físico e limpa campos ao alternar
   useEffect(() => {
     if (isPhysicalOpen) {
       setContribution(remainingAmount.toString());
@@ -99,24 +72,6 @@ export default function GiftCard({ gift, onContribute, onEdit, onDelete }: GiftC
     return value.toLocaleString("pt-BR", {
       style: "currency",
       currency: "BRL",
-    });
-  };
-
-  const handleEditSubmit = () => {
-    if (onEdit) {
-      onEdit(gift.id, {
-        name: editName,
-        image: editImage,
-        goal: parseFloat(editGoal) || gift.goal,
-        description: editDescription,
-        store_url: editStoreUrl || undefined,
-      });
-    }
-
-    setIsEditOpen(false);
-    toast({
-      title: "Sucesso!",
-      description: "As alterações foram salvas.",
     });
   };
 
@@ -174,88 +129,6 @@ export default function GiftCard({ gift, onContribute, onEdit, onDelete }: GiftC
             </span>
           </div>
         )}
-        
-        {/* Botão de Edição */}
-        <Dialog open={isEditOpen} onOpenChange={setIsEditOpen}>
-          <DialogTrigger asChild>
-            <Button
-              variant="secondary"
-              size="icon"
-              className={cn('absolute', 'top-2', 'right-2', 'h-8', 'w-8', 'rounded-full', 'bg-white/80', 'backdrop-blur-sm', 'hover:bg-white')}
-            >
-              <Edit2 className="h-4 w-4 text-foreground" />
-            </Button>
-          </DialogTrigger>
-          <DialogContent className={cn('sm:max-w-[425px]', 'max-h-[90vh]', 'overflow-y-auto')}>
-            <DialogHeader>
-              <DialogTitle>Editar Presente</DialogTitle>
-              <DialogDescription>
-                Faça alterações neste presente (protegido por senha).
-              </DialogDescription>
-            </DialogHeader>
-            <div className="space-y-4 pt-4">
-              <div className="space-y-2">
-                <Label>Nome do Presente</Label>
-                <Input
-                  value={editName}
-                  onChange={(e) => setEditName(e.target.value)}
-                  placeholder="Nome do presente..."
-                />
-              </div>
-              <div className="space-y-2">
-                <Label>URL da Imagem</Label>
-                <Input
-                  value={editImage}
-                  onChange={(e) => setEditImage(e.target.value)}
-                  placeholder="https://..."
-                />
-              </div>
-              <div className="space-y-2">
-                <Label>Preço Alvo (R$)</Label>
-                <Input
-                  type="number"
-                  value={editGoal}
-                  onChange={(e) => setEditGoal(e.target.value)}
-                  placeholder="0.00"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label>Descrição</Label>
-                <Textarea
-                  value={editDescription}
-                  onChange={(e) => setEditDescription(e.target.value)}
-                  rows={3}
-                />
-              </div>
-              <div className="space-y-2">
-                <Label>URL da Loja (Opcional)</Label>
-                <Input
-                  value={editStoreUrl}
-                  onChange={(e) => setEditStoreUrl(e.target.value)}
-                  placeholder="https://..."
-                />
-              </div>
-            </div>
-            <DialogFooter className="mt-4 flex flex-col sm:flex-row gap-2 sm:justify-between w-full">
-              {onDelete && (
-                <Button 
-                  variant="destructive" 
-                  onClick={() => {
-                    setIsEditOpen(false);
-                    onDelete(gift.id);
-                  }} 
-                  className="w-full sm:w-auto"
-                >
-                  <Trash2 className="w-4 h-4 mr-2" />
-                  Excluir Presente
-                </Button>
-              )}
-              <Button onClick={handleEditSubmit} className="w-full sm:w-auto">
-                Salvar Alterações
-              </Button>
-            </DialogFooter>
-          </DialogContent>
-        </Dialog>
       </div>
 
       <CardHeader>
@@ -284,7 +157,7 @@ export default function GiftCard({ gift, onContribute, onEdit, onDelete }: GiftC
         <div className={cn('flex', 'w-full', 'gap-2')}>
           {!isGoalReached ? (
             <>
-              {/* Modal PIX (COM MENSAGEM) */}
+              {/* Modal PIX */}
               <Dialog open={isOpen} onOpenChange={setIsOpen}>
                 <DialogTrigger asChild>
                   <Button className={cn('flex-1', 'gap-1', 'px-1', 'text-xs', 'font-semibold', 'sm:text-sm')}>
@@ -351,15 +224,14 @@ export default function GiftCard({ gift, onContribute, onEdit, onDelete }: GiftC
                 </DialogContent>
               </Dialog>
 
-              {/* Modal Físico (Apenas Nome e Mensagem) */}
+              {/* Modal Físico */}
               <Dialog open={isPhysicalOpen} onOpenChange={setIsPhysicalOpen}>
                 <DialogTrigger asChild>
                   <Button
                     variant="outline"
                     className={cn('flex-1', 'gap-1', 'px-1', 'text-xs', 'font-semibold', 'sm:text-sm', 'border-primary', 'text-primary')}
                   >
-                    <PackageCheck className={cn('w-3', 'h-3', 'sm:w-4', 'sm:h-4')} /> Comprei
-                    Fisicamente
+                    <PackageCheck className={cn('w-3', 'h-3', 'sm:w-4', 'sm:h-4')} /> Comprei Fisicamente
                   </Button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[425px]">

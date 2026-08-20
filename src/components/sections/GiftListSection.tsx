@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Filter, ArrowUpDown, Plus } from "lucide-react";
+import { Filter, ArrowUpDown } from "lucide-react";
 import GiftCard from "@/components/GiftCard";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -15,19 +15,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogFooter,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
-import { ToastAction } from "@/components/ui/toast";
+import { cn } from "../../lib/utils";
 
 export default function GiftListSection() {
   const [gifts, setGifts] = useState<Gift[]>(
@@ -38,44 +26,7 @@ export default function GiftListSection() {
   const [sortOrder, setSortOrder] = useState("");
   const [visibleCount, setVisibleCount] = useState(32);
 
-  // Estados para o Modal de Novo Presente
-  const [isNewGiftModalOpen, setIsNewGiftModalOpen] = useState(false);
-  const [newGiftName, setNewGiftName] = useState("");
-  const [newGiftImage, setNewGiftImage] = useState("");
-  const [newGiftGoal, setNewGiftGoal] = useState("");
-  const [newGiftDesc, setNewGiftDesc] = useState("");
-  const [newGiftStore, setNewGiftStore] = useState("");
-  const [isSavingNewGift, setIsSavingNewGift] = useState(false);
 
-  const { toast } = useToast();
-
-  const handleUndoDelete = async (giftId: number) => {
-    if (!supabase) return;
-    const { error } = await supabase.from("gift_overrides").upsert({
-      gift_id: giftId,
-      is_deleted: false,
-      updated_at: new Date().toISOString(),
-    });
-    if (error) {
-      alert("Erro ao desfazer exclusão.");
-    } else {
-      fetchGiftsData();
-    }
-  };
-
-  const handleUndoAdd = async (giftId: number) => {
-    if (!supabase) return;
-    const { error } = await supabase.from("gift_overrides").upsert({
-      gift_id: giftId,
-      is_deleted: true,
-      updated_at: new Date().toISOString(),
-    });
-    if (error) {
-      alert("Erro ao desfazer adição.");
-    } else {
-      fetchGiftsData();
-    }
-  };
 
   useEffect(() => {
     fetchGiftsData();
@@ -140,7 +91,7 @@ export default function GiftListSection() {
 
       const overridesMap: Record<number, any> = {};
       const newGifts: any[] = [];
-      
+
       if (overridesResponse.data) {
         overridesResponse.data.forEach((item) => {
           if (item.is_new) {
@@ -221,127 +172,6 @@ export default function GiftListSection() {
     }
   };
 
-  const handleEdit = async (
-    giftId: number,
-    updates: {
-      image?: string;
-      goal?: number;
-      description?: string;
-      store_url?: string;
-    }
-  ) => {
-    // Atualização otimista
-    setGifts((prevGifts) =>
-      prevGifts.map((gift) =>
-        gift.id === giftId
-          ? {
-              ...gift,
-              image: updates.image || gift.image,
-              goal: updates.goal || gift.goal,
-              description: updates.description || gift.description,
-              storeUrl: updates.store_url || gift.storeUrl,
-            }
-          : gift
-      )
-    );
-
-    // Salvar no Banco
-    if (!supabase) return;
-    const { error } = await supabase.from("gift_overrides").upsert({
-      gift_id: giftId,
-      ...updates,
-      updated_at: new Date().toISOString(),
-    });
-
-    if (error) {
-      console.error("Erro ao salvar edições:", error);
-      alert("Erro ao salvar edições. Tente novamente.");
-      fetchGiftsData();
-    }
-  };
-
-  const handleDelete = async (giftId: number) => {
-    if (!confirm("Tem certeza que deseja excluir este presente?")) return;
-
-    // Atualização otimista
-    setGifts((prev) => prev.filter((g) => g.id !== giftId));
-
-    // Salvar no banco
-    if (!supabase) return;
-    const { error } = await supabase.from("gift_overrides").upsert({
-      gift_id: giftId,
-      is_deleted: true,
-      updated_at: new Date().toISOString(),
-    });
-
-    if (error) {
-      console.error("Erro ao excluir presente:", error);
-      alert("Erro ao excluir. Tente novamente.");
-      fetchGiftsData();
-    } else {
-      toast({
-        title: "Presente excluído",
-        description: "O presente foi removido da lista.",
-        action: (
-          <ToastAction altText="Desfazer exclusão" onClick={() => handleUndoDelete(giftId)}>
-            Desfazer
-          </ToastAction>
-        ),
-      });
-    }
-  };
-
-  const handleOpenNewGiftModal = () => {
-    setNewGiftName("");
-    setNewGiftImage("");
-    setNewGiftGoal("");
-    setNewGiftDesc("");
-    setNewGiftStore("");
-    setIsNewGiftModalOpen(true);
-  };
-
-  const handleSaveNewGift = async () => {
-    if (!newGiftName) return alert("O nome do presente é obrigatório.");
-
-    setIsSavingNewGift(true);
-    // Gera um ID negativo aleatório seguro para o tipo INTEGER do Postgres
-    const newGiftId = -Math.floor(Math.random() * 1000000);
-    
-    if (!supabase) {
-      setIsSavingNewGift(false);
-      alert("Erro: Banco de dados não configurado.");
-      return;
-    }
-    const { error } = await supabase.from("gift_overrides").insert({
-      gift_id: newGiftId,
-      name: newGiftName,
-      image: newGiftImage || null,
-      goal: newGiftGoal ? Number(newGiftGoal) : null,
-      description: newGiftDesc || null,
-      store_url: newGiftStore || null,
-      is_new: true,
-      updated_at: new Date().toISOString(),
-    });
-
-    setIsSavingNewGift(false);
-
-    if (error) {
-      console.error("Erro ao criar novo presente:", error);
-      alert(`Erro ao criar novo presente: ${error.message}`);
-    } else {
-      setIsNewGiftModalOpen(false);
-      fetchGiftsData();
-      toast({
-        title: "Presente adicionado",
-        description: `${newGiftName} foi adicionado à lista.`,
-        action: (
-          <ToastAction altText="Desfazer adição" onClick={() => handleUndoAdd(newGiftId)}>
-            Desfazer
-          </ToastAction>
-        ),
-      });
-    }
-  };
 
   const processedGifts = gifts
     .filter((gift) => {
@@ -358,16 +188,16 @@ export default function GiftListSection() {
   return (
     <section
       id="presentes"
-      className="w-full py-12 md:py-24 lg:py-32 bg-background"
+      className={cn('w-full', 'py-12', 'md:py-24', 'lg:py-32', 'bg-background')}
     >
-      <div className="container px-4 md:px-6">
+      <div className={cn('container', 'px-4', 'md:px-6')}>
         {/* Cabeçalho */}
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
+        <div className={cn('flex', 'flex-col', 'items-center', 'justify-center', 'space-y-4', 'text-center')}>
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold font-headline tracking-tighter sm:text-5xl text-primary">
+            <h2 className={cn('text-3xl', 'font-bold', 'font-headline', 'tracking-tighter', 'sm:text-5xl', 'text-primary')}>
               Lista de Presentes
             </h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            <p className={cn('max-w-[900px]', 'text-muted-foreground', 'md:text-xl/relaxed', 'lg:text-base/relaxed', 'xl:text-xl/relaxed')}>
               Como funciona nossa lista: Você pode nos{" "}
               <strong>presentear de duas formas!</strong> Ao clicar em um item,{" "}
               <strong>
@@ -375,8 +205,7 @@ export default function GiftListSection() {
                 Pix.
               </strong>{" "}
               <strong>Se preferir dar o produto físico</strong>, basta usar o
-              link da loja (disponível em alguns itens) e mandar{" "}
-              <strong>entregar no nosso endereço.</strong>{" "}
+              link da loja (disponível em alguns itens).
               Escolha a opção mais confortável para você; o que realmente
               importa é o seu carinho!
             </p>
@@ -385,14 +214,14 @@ export default function GiftListSection() {
         <Separator className="my-8" />
 
         {/* Barra de Filtros e Ordenação */}
-        <div className="flex flex-col sm:flex-row gap-4 mb-8 p-4 bg-muted/30 rounded-lg border shadow-sm items-center">
-          <div className="flex items-center gap-2 flex-1 w-full sm:w-auto">
-            <Filter className="w-4 h-4 text-muted-foreground hidden sm:block" />
-            <span className="text-sm font-medium whitespace-nowrap hidden sm:block">
+        <div className={cn('flex', 'flex-col', 'sm:flex-row', 'gap-4', 'mb-8', 'p-4', 'bg-muted/30', 'rounded-lg', 'border', 'shadow-sm', 'items-center')}>
+          <div className={cn('flex', 'items-center', 'gap-2', 'flex-1', 'w-full', 'sm:w-auto')}>
+            <Filter className={cn('w-4', 'h-4', 'text-muted-foreground', 'hidden', 'sm:block')} />
+            <span className={cn('text-sm', 'font-medium', 'whitespace-nowrap', 'hidden', 'sm:block')}>
               Exibir:
             </span>
             <Select value={filter} onValueChange={setFilter}>
-              <SelectTrigger className="w-full sm:w-[200px] bg-background">
+              <SelectTrigger className={cn('w-full', 'sm:w-[200px]', 'bg-background')}>
                 <SelectValue placeholder="Status" />
               </SelectTrigger>
               <SelectContent>
@@ -403,13 +232,13 @@ export default function GiftListSection() {
             </Select>
           </div>
 
-          <Separator orientation="vertical" className="hidden sm:block h-8" />
+          <Separator orientation="vertical" className={cn('hidden', 'sm:block', 'h-8')} />
 
-          <div className="flex items-center gap-2 w-full sm:w-auto">
-            <ArrowUpDown className="w-4 h-4 text-muted-foreground hidden sm:block" />
-            <span className="text-sm font-medium hidden sm:block">Ordenar:</span>
+          <div className={cn('flex', 'items-center', 'gap-2', 'w-full', 'sm:w-auto')}>
+            <ArrowUpDown className={cn('w-4', 'h-4', 'text-muted-foreground', 'hidden', 'sm:block')} />
+            <span className={cn('text-sm', 'font-medium', 'hidden', 'sm:block')}>Ordenar:</span>
             <Select value={sortOrder} onValueChange={setSortOrder}>
-              <SelectTrigger className="w-full sm:w-[180px] bg-background">
+              <SelectTrigger className={cn('w-full', 'sm:w-[180px]', 'bg-background')}>
                 <SelectValue placeholder="Ordem" />
               </SelectTrigger>
               <SelectContent>
@@ -419,103 +248,34 @@ export default function GiftListSection() {
               </SelectContent>
             </Select>
           </div>
-          
-          <Separator orientation="vertical" className="hidden sm:block h-8" />
-
-          <Button onClick={handleOpenNewGiftModal} variant="default" className="w-full sm:w-auto">
-            <Plus className="w-4 h-4 mr-2" />
-            Novo Presente
-          </Button>
         </div>
 
-        {/* Modal de Adicionar Novo Presente */}
-        <Dialog open={isNewGiftModalOpen} onOpenChange={setIsNewGiftModalOpen}>
-          <DialogContent className="sm:max-w-[425px]">
-            <DialogHeader>
-              <DialogTitle className="text-primary">Adicionar Novo Presente</DialogTitle>
-              <DialogDescription>
-                Crie um novo presente para a sua lista.
-              </DialogDescription>
-            </DialogHeader>
-            <div className="grid gap-4 py-4">
-              <div className="space-y-2">
-                <Label>Nome do Presente *</Label>
-                <Input
-                  value={newGiftName}
-                  onChange={(e) => setNewGiftName(e.target.value)}
-                  placeholder="Ex: Jogo de Panelas"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label>Imagem (URL)</Label>
-                <Input
-                  value={newGiftImage}
-                  onChange={(e) => setNewGiftImage(e.target.value)}
-                  placeholder="https://..."
-                />
-              </div>
-              <div className="space-y-2">
-                <Label>Valor Total (Meta)</Label>
-                <Input
-                  type="number"
-                  value={newGiftGoal}
-                  onChange={(e) => setNewGiftGoal(e.target.value)}
-                  placeholder="0.00"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label>Link da Loja (Opcional)</Label>
-                <Input
-                  value={newGiftStore}
-                  onChange={(e) => setNewGiftStore(e.target.value)}
-                  placeholder="https://..."
-                />
-              </div>
-              <div className="space-y-2">
-                <Label>Descrição (Opcional)</Label>
-                <Textarea
-                  value={newGiftDesc}
-                  onChange={(e) => setNewGiftDesc(e.target.value)}
-                  placeholder="Descrição detalhada do presente..."
-                  rows={3}
-                />
-              </div>
-            </div>
-            <DialogFooter>
-              <Button onClick={handleSaveNewGift} disabled={isSavingNewGift}>
-                {isSavingNewGift ? "Salvando..." : "Salvar Presente"}
-              </Button>
-            </DialogFooter>
-          </DialogContent>
-        </Dialog>
 
         {/* Grade de Presentes */}
         {isLoading ? (
-          <div className="flex justify-center items-center py-20">
-            <p className="text-muted-foreground animate-pulse">
+          <div className={cn('flex', 'justify-center', 'items-center', 'py-20')}>
+            <p className={cn('text-muted-foreground', 'animate-pulse')}>
               Carregando lista de presentes...
             </p>
           </div>
         ) : processedGifts.length > 0 ? (
           <div className="space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pb-12">
+            <div className={cn('grid', 'grid-cols-1', 'md:grid-cols-2', 'lg:grid-cols-3', 'xl:grid-cols-4', 'gap-4', 'pb-12')}>
               {processedGifts.slice(0, visibleCount).map((gift) => (
                 <GiftCard
                   key={gift.id}
                   gift={gift}
                   onContribute={handleContribute}
-                  onEdit={handleEdit}
-                  onDelete={handleDelete}
                 />
               ))}
             </div>
             {visibleCount < processedGifts.length && (
-              <div className="flex justify-center mt-8 pb-12">
-                <Button 
+              <div className={cn('flex', 'justify-center', 'mt-8', 'pb-12')}>
+                <Button
                   onClick={() => setVisibleCount((prev) => prev + 32)}
                   variant="outline"
                   size="lg"
-                  className="font-semibold px-8 py-6"
+                  className={cn('font-semibold', 'px-8', 'py-6')}
                 >
                   Ver mais presentes
                 </Button>
@@ -523,8 +283,8 @@ export default function GiftListSection() {
             )}
           </div>
         ) : (
-          <div className="text-center py-20 bg-muted/20 rounded-lg border border-dashed">
-            <p className="text-muted-foreground mb-4">
+          <div className={cn('text-center', 'py-20', 'bg-muted/20', 'rounded-lg', 'border', 'border-dashed')}>
+            <p className={cn('text-muted-foreground', 'mb-4')}>
               Nenhum presente encontrado com os filtros selecionados.
             </p>
             <Button variant="outline" onClick={() => setFilter("all")}>
