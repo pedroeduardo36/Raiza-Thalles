@@ -11,145 +11,9 @@ export interface Gift {
 }
 
 export const allGifts: Gift[] = [
-  {
-    id: 1,
-    category: "casamento",
-    name: "Cota para Passeio na Lua de Mel",
-    goal: 500,
-    current: 0,
-    description: "Ajude-nos a ter uma lua de mel inesquecível!",
-    image:
-      "https://fastly.picsum.photos/id/49/1280/792.jpg?hmac=NnUJy0O9-pXHLmY2loqVs2pJmgw9xzuixgYOk4ALCXU",
-    imageHint: "honeymoon travel",
-  },
-  {
-    id: 2,
-    category: "casamento",
-    name: "Cota para Aluguel de carro na Lua de Mel",
-    goal: 500,
-    current: 0,
-    description: "Pra exploramos o mundo.",
-    image:
-      "https://cdn0.matrimonio.com/vendor/2268/3_2/960/jpg/mzr-3687_2_282268-171283978178315.jpeg",
-    imageHint: "carro",
-  },
-  {
-    id: 3,
-    category: "casamento",
-    name: "Jantar Romântico na Lua de Mel",
-    goal: 300,
-    current: 0,
-    description:
-      "Um momento especial e uma experiência gastronômica para nós dois.",
-    image:
-      "data:image/jpeg;base64,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",
-    imageHint: "romantic dinner",
-  },
-  {
-    id: 4,
-    category: "casamento",
-    name: "Base Báu Queen",
-    goal: 1099,
-    current: 0,
-    description: "Base para colchão queen",
-    image:
-      "https://cdn.iset.io/assets/73735/produtos/1056/c3a9c67f3f217351893295fa9a9560ec66c637693f121.png",
-    imageHint: "Cama bau",
-    storeUrl:
-      "https://www.dfcolchoes.com.br/Base-Bau-Queen-Bipartida-1-Tampa-DF-Premium-Econ-36cm?sku=05422-CORINO-PRETA&gad_campaignid=19006258944&gbraid=0AAAAACtkcVDQxq1wLDYqEKSOXTW9nUH_S",
-  },
-  {
-    id: 5,
-    category: "casamento",
-    name: "Colchão Queen Ortobom",
-    goal: 3399,
-    current: 0,
-    description: "Um terço da sua vida, você passa dormindo.",
-    image:
-      "https://cdn.ortobom.com.br/file/41ba5b4b-8ab3-43c0-9be6-b667bef6707e/liberty_2.png",
-    imageHint: "orthopedic mattress",
-    storeUrl: "https://www.ortobom.com.br/p/colchao/colchao-liberty/queen158",
-  },
-  {
-    id: 6,
-    category: "casamento",
-    name: "Cota para Diária noite de núpcias",
-    goal: 334.37,
-    current: 0,
-    description: " ",
-    image:
-      "https://images.trvl-media.com/lodging/3000000/2060000/2050600/2050555/9fc56328.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill",
-  },
-  {
-    id: 7,
-    name: "Bandeja Organizadara Home Style",
-    category: "cha",
-    goal: 99.99,
-    current: 0,
-    description: "Bandeja organizadora.",
-    image: "https://img.camicado.com.br/item/101029398/zoom/1.jpg",
-    imageHint: "kitchen appliance",
-    storeUrl:
-      "https://www.camicado.com.br/p/bandeja-organizadora-home-style-mediterranie-25-cm-x-14-cm/-/A-101029380-br.lc?sku=101029398",
-  },
-  {
-    id: 8,
-    name: "Porta sabonete Líquido",
-    category: "casamento",
-    goal: 89.99,
-    current: 0,
-    description: "Home Style.",
-    image: "https://img.camicado.com.br/item/100828657/zoom/1.jpg",
-    imageHint: "laundry room",
-    storeUrl:
-      "https://www.camicado.com.br/p/porta-sabonete-liquido-home-style-mediterranie/-/A-100828649-br.lc?sku=100828657",
-  },
-  {
-    id: 9,
-    name: "Porta Escova de dente",
-    category: "casamento",
-    goal: 59.99,
-    current: 0,
-    description: "Home Style.",
-    image: "https://img.camicado.com.br/item/100828711/zoom/1.jpg",
-    imageHint: "bedroom interio",
-    storeUrl:
-      "https://www.camicado.com.br/p/porta-escova-home-style-mediterranie/-/A-100828702-br.lc?sku=100828711",
-  },
-  {
-    id: 10,
-    name: "Porta cotonete e algodão",
-    category: "cha",
-    goal: 99.99,
-    current: 0,
-    description: "",
-    image:
-      "https://img.camicado.com.br/item/000000000000042674/zoom/1.jpg?ims=fit-in/x566",
-    imageHint: "porta cotonete e algodão",
-    storeUrl:
-      "https://www.camicado.com.br/p/porta-algodao-e-cotonete-home-style-beauty-15-cm-x-8-cm/-/A-300042674-br.lc?sku=000000000000042674",
-  },
-  {
-    id: 11,
-    category: "casamento",
-    name: "Lava e seca",
-    goal: 3798,
-    current: 0,
-    description: "Lava e Seca para facilitar o dia a dia dos noivos",
-    image: "https://imgs.ponto.com.br/55048505/1g.jpg?imwidth=500",
-    imageHint: "washing machine",
-  },
-  {
-    id: 12,
-    category: "casamento",
-    name: "Lava Louças Brastemp",
-    goal: 2100,
-    current: 2100,
-    description: "Para os noivos não brigarem pela louça.",
-    image:
-      "https://brastemp.vtexassets.com/arquivos/ids/267500-300-300/01_Brastemp_Lava_loucas_BLF08BS_Imagem_Detalhe_BLF08BS_FRONTAL_4.jpg?v=638973414195430000",
-    imageHint: "cooking lesson",
-  },
+
+
+
   {
     id: 13,
     name: "Jogo de Pano de Prato",
@@ -548,18 +412,7 @@ export const allGifts: Gift[] = [
     storeUrl:
       "https://www.camicado.com.br/p/jogo-xicaras-de-cha-cafe-com-pires-210ml-kit-6-pecas-ceramica/-/A-7010704840109-br.lc?sku=7510710186672",
   },
-  {
-    id: 44,
-    category: "casamento",
-    name: "Tábuas para Corte",
-    goal: 174.99,
-    current: 0,
-    description: " ",
-    image: "https://m.media-amazon.com/images/I/71+H93fQ-ML._AC_SL1200_.jpg",
-    imageHint: "tábuas para corte",
-    storeUrl:
-      "https://www.amazon.com.br/T%C3%A1bua-Madeira-Invertida-Canaleta-Stolf/dp/B0821SHKZV/ref=asc_df_B0821SHKZV?tag=googleshopp00-20&hvadid=709885039594&hvpos=&hvnetw=g&hvrand=15641890093906329261&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9198389&hvtargid=pla-913212534619&psc=1&language=pt_BR",
-  },
+
   {
     id: 45,
     category: "cha",
@@ -611,56 +464,6 @@ export const allGifts: Gift[] = [
       "https://www.amazon.com.br/Assadeiras-Marinex-Pe%C3%A7as-Tampa-Vidro/dp/B082M6W4VX/ref=asc_df_B082M6W4VX?tag=googleshopp00-20&hvadid=709870389015&hvpos=&hvnetw=g&hvrand=15470083941174972509&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9196708&hvtargid=pla-896953145889&psc=1&language=pt_BR",
   },
   {
-    id: 49,
-    category: "casamento",
-    name: "Robo aspirador",
-    goal: 2400,
-    current: 0,
-    description: "O melhor amigo da faxina, o Robson.",
-    image:
-      "https://http2.mlstatic.com/D_NQ_NP_2X_973988-MLA85070062101_052025-F.webp",
-    imageHint: "home garden",
-    storeUrl:
-      "https://www.mercadolivre.com.br/rob-aspirador-de-po-wap-robot-w4000-estaco-autolimpante-mapeamento-lds-360-passa-pano-com-mop-giratorio/p/MLB42518345?matt_word=custobeneficio&matt_tool=52948640&forceInApp=true",
-  },
-  {
-    id: 50,
-    category: "casamento",
-    name: "Fogão",
-    goal: 1484.1,
-    current: 0,
-    description: "Pro noivo fazer bastante macarrão.",
-    image:
-      "https://fastshopbr.vtexassets.com/arquivos/ids/3848388-1280-auto/17581241571504.webp?v=639058121310000000&quality=8",
-    imageHint: "Fogão",
-    storeUrl:
-      "https://site.fastshop.com.br/fogao-4-bocas-electrolux-cinza-efficient-mesa-vidro-tripla-chama-e-perfectcook--fe4gg--119728/p?idsku=126977&gad_campaignid=22827161028",
-  },
-  {
-    id: 51,
-    category: "casamento",
-    name: "Liquidificador",
-    goal: 176.37,
-    current: 0,
-    description: "Suco e tal.",
-    image: "https://m.media-amazon.com/images/I/51N3Xi4JJML._AC_SL1000_.jpg",
-    imageHint: "window curtains",
-    storeUrl:
-      "https://www.amazon.com.br/Liquidificador-1400-Full-Preto-Oster/dp/B08DFJRCJB/ref=asc_df_B08DFJRCJB?tag=googleshopp00-20&hvadid=709968341272&hvpos=&hvnetw=g&hvrand=1817521089323269584&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9196708&hvtargid=pla-943565787307&language=pt_BR&th=1",
-  },
-  {
-    id: 52,
-    category: "casamento",
-    name: "Faca do Chef Inox",
-    goal: 191.81,
-    current: 0,
-    description: "Faca afiada não passa vergonha.",
-    image: "https://m.media-amazon.com/images/I/31gtodIHiTL._AC_SL1500_.jpg",
-    imageHint: "jogo de faca preta",
-    storeUrl:
-      "https://www.amazon.com.br/Faca-Chef-Tramontina-Profissional-Sublime/dp/B0CJFV8S1G/?_encoding=UTF8&pd_rd_w=9Tqc5&content-id=amzn1.sym.812ea633-abc7-4b1d-b3cf-adb0fac8c69c:amzn1.symc.5a16118f-86f0-44cd-8e3e-6c5f82df43d0&pf_rd_p=812ea633-abc7-4b1d-b3cf-adb0fac8c69c&pf_rd_r=MRBSNZE26X5917JQHHJE&pd_rd_wg=89UnC&pd_rd_r=8074c22d-ba68-4bd9-8527-ca577eea758f",
-  },
-  {
     id: 53,
     category: "casamento",
     name: "Batedeira Planetária",
@@ -672,18 +475,6 @@ export const allGifts: Gift[] = [
     imageHint: "Batedeira",
     storeUrl:
       "https://www.mercadolivre.com.br/batedeira-planetaria-britnia-bbpe01-12-velocidades-4l-500w-cor-preto/p/MLB28681453?pdp_filters=item_id:MLB5577846204&from=gshop&matt_tool=80488341&matt_internal_campaign_id=&matt_word=&matt_source=google&matt_campaign_id=22090193747&matt_ad_group_id=194474625594&matt_match_type=&matt_network=g&matt_device=c&matt_creative=792355615584&matt_keyword=&matt_ad_position=&matt_ad_type=pla&matt_merchant_id=735098639&matt_product_id=MLB28681453-product&matt_product_partition_id=2452779771262&matt_target_id=aud-1966858076296:pla-2452779771262&cq_src=google_ads&cq_cmp=22090193747&cq_net=g&cq_plt=gp&cq_med=pla&gad_campaignid=22090193747&gbraid=0AAAAAD93qcButA8cepQ2aKc5nFqbjlN_V",
-  },
-  {
-    id: 54,
-    category: "casamento",
-    name: "Aspirador vertical",
-    goal: 179,
-    current: 0,
-    description: "Nem todo pó dá pro Robson.",
-    image: "https://m.media-amazon.com/images/I/61m5wUE9XzL._AC_SL1500_.jpg",
-    imageHint: "aspirador vertical wap",
-    storeUrl:
-      "https://www.amazon.com.br/WAP-Aspirador-Vertical-Tecnologia-Cyclone/dp/B0BT27S33W/ref=asc_df_B0BT27S33W?tag=googleshopp00-20&hvadid=709968341038&hvpos=&hvnetw=g&hvrand=15133996091124374291&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9196708&hvtargid=pla-2008519025751&language=pt_BR&th=1",
   },
   {
     id: 55,
@@ -722,18 +513,6 @@ export const allGifts: Gift[] = [
     imageHint: "mesa e gaveteiro.",
     storeUrl:
       "https://www.madeiramadeira.com.br/kit-2-pecas-com-1-escrivaninha-e-1-gaveteiro-4-gavetas-kuadra-665288.html",
-  },
-  {
-    id: 58,
-    category: "casamento",
-    name: "Jogo de panelas 10 peças",
-    goal: 739.9,
-    current: 0,
-    description: "Pro noivo fazer o famoso carbonara.",
-    image: "https://imgs.casasbahia.com.br/7327189/1xg.jpg?imwidth=500",
-    imageHint: "jogo de panelas",
-    storeUrl:
-      "https://www.casasbahia.com.br/jogo-de-panelas-tramontina-aco-inox-allegra-10-pecas-fundo-triplo-com-pegador-de-massa/p/7327189?IdSku=7327189&idLojista=31644&tipoLojista=3P&&gad_campaignid=22846606777&gbraid=0AAAAADtAamhVTC-LEdi3gdfupvPmiL5Kk",
   },
   {
     id: 59,
@@ -798,18 +577,6 @@ export const allGifts: Gift[] = [
       "https://www.camicado.com.br/p/balde-de-gelo-home-style-vegas/-/A-300055018-br.lc?sku=000000000000055018",
   },
   {
-    id: 64,
-    category: "casamento",
-    name: "Faqueiro",
-    goal: 281.2,
-    current: 0,
-    description: "Nem tudo é finger food.",
-    image: "https://m.media-amazon.com/images/I/51GB1-6mYXL._AC_SL1200_.jpg",
-    imageHint: "faqueiro de inox",
-    storeUrl:
-      "https://www.amazon.com.br/Faqueiro-Pe%C3%A7as-A%C3%A7o-Inox-Berna/dp/B076PL2ZSP/ref=asc_df_B076PL2ZSP?tag=googleshopp00-20&hvadid=709964506220&hvpos=&hvnetw=g&hvrand=15991246309113898205&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9196708&hvtargid=pla-811779203418&language=pt_BR&th=1",
-  },
-  {
     id: 65,
     category: "cha",
     name: "Amolador de facas",
@@ -820,18 +587,6 @@ export const allGifts: Gift[] = [
       "https://http2.mlstatic.com/D_Q_NP_661386-MLB97818556506_112025-F-aco-tungstnio-magnetico-rolamento-afiador-ajustavel.webp",
     storeUrl:
       "https://produto.mercadolivre.com.br/MLB-5934272508-aco-tungstnio-magnetico-rolamento-afiador-ajustavel-_JM?matt_tool=31493002&matt_internal_campaign_id=&matt_word=&matt_source=google&matt_campaign_id=22090354070&matt_ad_group_id=173090533636&matt_match_type=&matt_network=g&matt_device=c&matt_creative=727882727487&matt_keyword=&matt_ad_position=&matt_ad_type=pla&matt_merchant_id=5679225946&matt_product_id=MLB5934272508&matt_product_partition_id=2391703468697&matt_target_id=aud-1966857867496:pla-2391703468697&cq_src=google_ads&cq_cmp=22090354070&cq_net=g&cq_plt=gp&cq_med=pla&gad_campaignid=22090354070&gbraid=0AAAAAD93qcCC_JSn3MPmyQjxI7OlYHyB9",
-  },
-  {
-    id: 66,
-    category: "casamento",
-    name: "Panela de Teflon",
-    goal: 50,
-    current: 0,
-    description: "Pras omeletes nunca mais grudarem.",
-    image:
-      "https://http2.mlstatic.com/D_NQ_NP_2X_750628-MLA95682075414_102025-F.webp",
-    storeUrl:
-      "https://www.mercadolivre.com.br/kit-3-frigideiras-tramontina-antiaderente-com-tampa-de-vidro-cor-preto/p/MLB48599351?pdp_filters=item_id:MLB5779429248&matt_tool=52461461&matt_internal_campaign_id=353905140&matt_word=&matt_source=google&matt_campaign_id=23048606139&matt_ad_group_id=188383143778&matt_match_type=&matt_network=g&matt_device=c&matt_creative=780310479598&matt_keyword=&matt_ad_position=&matt_ad_type=pla&matt_merchant_id=635100077&matt_product_id=MLB5779429248&matt_product_partition_id=2446956872313&matt_target_id=aud-1966858076296:pla-2446956872313&cq_src=google_ads&cq_cmp=23048606139&cq_net=g&cq_plt=gp&cq_med=pla&gad_campaignid=23048606139&gbraid=0AAAAAD93qcDlwQ2kSy7I9JbmaaQvzcGuS",
   },
   {
     id: 67,
