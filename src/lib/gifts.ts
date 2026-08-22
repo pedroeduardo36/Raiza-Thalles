@@ -13,7 +13,6 @@ export interface Gift {
 export const allGifts: Gift[] = [
 
 
-
   {
     id: 13,
     name: "Jogo de Pano de Prato",
@@ -588,18 +587,7 @@ export const allGifts: Gift[] = [
     storeUrl:
       "https://produto.mercadolivre.com.br/MLB-5934272508-aco-tungstnio-magnetico-rolamento-afiador-ajustavel-_JM?matt_tool=31493002&matt_internal_campaign_id=&matt_word=&matt_source=google&matt_campaign_id=22090354070&matt_ad_group_id=173090533636&matt_match_type=&matt_network=g&matt_device=c&matt_creative=727882727487&matt_keyword=&matt_ad_position=&matt_ad_type=pla&matt_merchant_id=5679225946&matt_product_id=MLB5934272508&matt_product_partition_id=2391703468697&matt_target_id=aud-1966857867496:pla-2391703468697&cq_src=google_ads&cq_cmp=22090354070&cq_net=g&cq_plt=gp&cq_med=pla&gad_campaignid=22090354070&gbraid=0AAAAAD93qcCC_JSn3MPmyQjxI7OlYHyB9",
   },
-  {
-    id: 67,
-    category: "casamento",
-    name: "Micro-ondas",
-    goal: 611,
-    current: 0,
-    description: "Esquentar aquela marmita.",
-    image: "https://m.media-amazon.com/images/I/41ombLtjrUL._AC_SL1200_.jpg",
 
-    storeUrl:
-      "https://www.amazon.com.br/Micro-ondas-Philco-PMO38S-Limpa-F%C3%A1cil/dp/B0D3N79CZX/ref=asc_df_B0D3N79CZX?tag=googleshopp00-20&hvadid=709989056369&hvpos=&hvnetw=g&hvrand=13167591723790615765&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9196708&hvtargid=pla-2377832529340&psc=1&language=pt_BR",
-  },
   {
     id: 68,
     category: "casamento",
@@ -637,64 +625,7 @@ export const allGifts: Gift[] = [
     storeUrl:
       "https://www.camicado.com.br/p/ralador-de-queijo-home-style-utile/-/A-100876190-br.lc?sku=100876202&gad_campaignid=20305907174",
   },
-  {
-    id: 71,
-    category: "casamento",
-    name: "Pipoqueira elétrica",
-    goal: 299.99,
-    current: 0,
-    description: "Melhor amiga do filminho",
-    image:
-      "https://http2.mlstatic.com/D_NQ_NP_2X_820311-MLA99954207047_112025-F.webp",
-    storeUrl:
-      "https://www.mercadolivre.com.br/pipoqueira-eletrica-sem-oleo-philco-1200w-ppie01a-cor-preto/p/MLB43201177#polycard_client=search-desktop&search_layout=grid&position=18&type=product&tracking_id=1d845443-746f-4646-b7ca-44bf4724f94f&wid=MLB6077376208&sid=search",
-  },
-  {
-    id: 72,
-    category: "casamento",
-    name: "Espelho orgânico",
-    goal: 120,
-    current: 0,
-    description: "Espelho orgânico para o apartamento",
-    image:
-      "https://casavee.cdn.magazord.com.br/img/2022/11/produto/2185/espelho-organico-2-1.jpg?ims=fit-in/1000x1000/filters:fill(white)",
-    storeUrl:
-      "https://www.casavee.com.br/espelho-eros-42cm-x-100cm-tauari?gad_campaignid=20131686643&gbraid=0AAAAAoR_JWWTwj3SEFP2H5EtTYOmEsS_Q",
-  },
-  {
-    id: 73,
-    category: "casamento",
-    name: "Porta Chaves",
-    goal: 119,
-    current: 0,
-    description: "Para guardar as chaves do apartamento",
-    image:
-      "https://http2.mlstatic.com/D_NQ_NP_2X_866950-MLA99937525023_112025-F.webp",
-    storeUrl:
-      "https://www.mercadolivre.com.br/chaveiro-pluginz-marshall-jcm-800-jack-rack-pendurar-chave/p/MLB24281558?pdp_filters=item_id:MLB3450880235&from=gshop&matt_tool=31493002&matt_internal_campaign_id=&matt_word=&matt_source=google&matt_campaign_id=22090354070&matt_ad_group_id=173090534076&matt_match_type=&matt_network=g&matt_device=c&matt_creative=727882727502&matt_keyword=&matt_ad_position=&matt_ad_type=pla&matt_merchant_id=735098639&matt_product_id=MLB24281558-product&matt_product_partition_id=2388010515786&matt_target_id=aud-1966857867496:pla-2388010515786&cq_src=google_ads&cq_cmp=22090354070&cq_net=g&cq_plt=gp&cq_med=pla&gad_campaignid=22090354070&gbraid=0AAAAAD93qcDnH21YKHczu6KU9dIN4hU0s",
-  },
-  {
-    id: 74,
-    category: "casamento",
-    name: "Cafeteira Italiana",
-    goal: 79.99,
-    current: 0,
-    description: "QUERO CAFÉ!",
-    image:
-      "https://http2.mlstatic.com/D_NQ_NP_2X_752986-MLB99033632496_112025-F.webp",
-    storeUrl:
-      "https://www.mercadolivre.com.br/cafeteira-italiana-inox-luxo-9-xicaras-450ml-fogao-inducao/up/MLBU3625006021?pdp_filters=item_id:MLB5971078226&matt_tool=11873655&matt_internal_campaign_id=355098473&matt_word=&matt_source=google&matt_campaign_id=23048606145&matt_ad_group_id=196846483808&matt_match_type=&matt_network=g&matt_device=c&matt_creative=791246553735&matt_keyword=&matt_ad_position=&matt_ad_type=pla&matt_merchant_id=5682894244&matt_product_id=MLB5971078226&matt_product_partition_id=2459361005454&matt_target_id=aud-1966858076296:pla-2459361005454&cq_src=google_ads&cq_cmp=23048606145&cq_net=g&cq_plt=gp&cq_med=pla&gad_campaignid=23048606145&gbraid=0AAAAAD93qcBUpHQWIpcklvxVOKXNh2WUJ",
-  },
-  {
-    id: 75,
-    category: "casamento",
-    name: "Sofá",
-    goal: 1500.53,
-    current: 0,
-    description: "Sofazinho pra assistir Netflix juntinhos",
-    image:
-      "https://cdn.leroymerlin.com.br/products/sofa_4_lugares_living_linho_bronze_viero_moveis_1572240312_a57d_600x600.jpg",
-  },
+
   {
     id: 76,
     category: "cha",
@@ -706,17 +637,6 @@ export const allGifts: Gift[] = [
       "https://down-br.img.susercontent.com/file/sg-11134201-7rd5y-luyxhsb44tyeea.webp",
     storeUrl:
       "https://shopee.com.br/product/352576129/21599235506?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkVEdTU3BlMW9zMXB6bGYrZ0J1VEdQdUsrRmY4Y2dKOWVxMlpoMktmQ1pjR3hxdGFnM2VXS0tETlpNMFY0L0k3NlFKUGl5K3RTYWZzSHB4ODNwMTZCUXhybTVkd21MQ1JGKzJnbjBtck56Y04zQVh2cm56RnNqcnJoUzFFWG84bHZ3PT0&gad_campaignid=23451162212&gbraid=0AAAAACoEtRnIfCF3OM8SHA7e6IWKy3B-k",
-  },
-  {
-    id: 77,
-    category: "casamento",
-    name: "Air Fryer Oven",
-    goal: 350,
-    current: 0,
-    description: "Top 5 invenções da humanidade.",
-    image: "https://imgs.casasbahia.com.br/55065682/1g.jpg?imwidth=500",
-    storeUrl:
-      "https://www.casasbahia.com.br/fritadeira-eletrica-sem-oleo-air-fryer-oven-2-em-1-mondial-afon-12l-bi-12l-digital-preta-inox/p/55065682?IdSku=55065682&idLojista=10037&tipoLojista=1P&&gad_campaignid=22440145884&gbraid=0AAAAADtAamjAV4mwa3nWaaUR-lnuXsTVC",
   },
   {
     id: 78,
@@ -755,18 +675,6 @@ export const allGifts: Gift[] = [
       "https://www.madeiramadeira.com.br/kit-4-cadeiras-sala-de-jantar-pequi-cabecasa-madeiraoriginals-975335.html",
   },
   {
-    id: 81,
-    category: "casamento",
-    name: "Rack para TV",
-    goal: 2099.96,
-    current: 0,
-    description: "Rack para TV para dar aquele toque especial na sala",
-    image:
-      "https://product-hub-prd.madeiramadeira.com.br/414626198/images/d8edc286-f9bb-44f5-ac58-8e9ed5225e262689tb312freijoperspectiva.jpg?width=700&canvas=1:1&bg-color=FFF",
-    storeUrl:
-      "https://www.madeiramadeira.com.br/rack-para-tv-ate-55-135cm-com-01-porta-de-correr-100-mdf-tb312-dalla-costa-freijo-414626198.html?index=prod-poc-madeira&seller=13320",
-  },
-  {
     id: 82,
     category: "casamento",
     name: "Ferro de passar roupas",
@@ -779,17 +687,7 @@ export const allGifts: Gift[] = [
     storeUrl:
       "https://www.magazineluiza.com.br/ferro-de-passar-a-vapor-oster-gcstbs5002-220v-base-antiaderente-200ml-filtro-anticalcario-1400w-verde/p/gh1jd41ckd/ep/elfv/?seller_id=generaleletro",
   },
-  {
-    id: 83,
-    category: "casamento",
-    name: "Processador de Alimentos",
-    goal: 117.9,
-    current: 0,
-    description: "Preparar refeições mais rápidas",
-    image: "https://m.media-amazon.com/images/I/51yYe4QlyQL._AC_SL1000_.jpg",
-    storeUrl:
-      "https://www.amazon.com.br/Mixer-Turbo-Elgin-42MIX2002000-Preto/dp/B09VQ2PQRN/ref=asc_df_B09VQ2PQRN?tag=googleshopp00-20&hvadid=709874962041&hvpos=&hvnetw=g&hvrand=11042364895265923654&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9198389&hvtargid=pla-1667684182034&language=pt_BR&th=1",
-  },
+
   {
     id: 84,
     category: "cha",
@@ -801,17 +699,7 @@ export const allGifts: Gift[] = [
     storeUrl:
       "https://www.amazon.com.br/Conjunto-inoxid%C3%A1vel-aliment%C3%ADcio-recipientes-ferramentas/dp/B0FWXM8B83/ref=asc_df_B0FWXM8B83?tag=googleshopp00-20&hvadid=773381654827&hvpos=&hvnetw=g&hvrand=156957948833557635&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9198389&hvtargid=pla-2451974827145&psc=1&language=pt_BR",
   },
-  {
-    id: 85,
-    category: "casamento",
-    name: "Exaustor",
-    goal: 378,
-    current: 0,
-    description: "Exaustor para a cozinha",
-    image: "https://m.media-amazon.com/images/I/41reXjYlagL._AC_SL1200_.jpg",
-    storeUrl:
-      "https://www.amazon.com.br/SUGGAR-DEPURADOR-SLIM-PRETO-DPS182PT/dp/B0B3SJ8YLP/ref=asc_df_B0B3SJ8YLP?mcid=136ba5f7419c37bbb89a04941fbe57c2&tag=googleshopp06-20&linkCode=df0&hvadid=721147801917&hvpos=&hvnetw=g&hvrand=10882227228122705847&hvpone=&hvptwo=&hvqmt=&hvdev=m&hvdvcmdl=&hvlocint=&hvlocphy=9197471&hvtargid=pla-2374768378214&gad_source=1&th=1",
-  },
+
   {
     id: 86,
     category: "cha",
@@ -934,40 +822,9 @@ export const allGifts: Gift[] = [
     storeUrl:
       "https://www.amazon.com.br/Forma-para-Moldar-Hamb%C3%BArguer-Recheado/dp/B0FS7RLRFS/ref=sr_1_3_sspa?crid=26NEPKSEB7OKH&dib=eyJ2IjoiMSJ9.KcEHDqevXNwfOmtcUQCFOL7EZLjm-66pPig-EGBCs_lBSdEFuKhWRUPf2gu5-i6XlczMHj2WBxrOconWqvkO-NfdlUaxqalKpwPqaBvSXN-ItRpaQKmt03fS_M26op4n4Ef1333HaWUkjgDa_boJxsjk3FTI730R5UKC0sCWQDi7NVy6JtWnmZLkS951-xkz-1e1_hly2HY9fwC3KyDEl20lf063hRHqCHkzbJrdugjlTood0XyqbYf5gHUzkXuXiaD2IpKz-Iy7DfHksUKsGyGCfGtm7vmJKzmThkAtQYg.TP35U5xaLQdtybAjbwu-281wvAUVrxpCS1gbCTsm9do&dib_tag=se&keywords=molde+de+hamburguer&qid=1770607244&sprefix=molde+de+,aps,315&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
   },
-  {
-    id: 97,
-    category: "casamento",
-    name: "Geladeira",
-    goal: 2903.12,
-    current: 0,
-    description: "",
-    image: "https://imgs.casasbahia.com.br/1565163222/1xg.jpg?imwidth=500",
-    storeUrl:
-      "https://www.casasbahia.com.br/geladeira-duplex-evolution-smartthings-samsung-rt38-391l-bivolt-black-inox/p/1565163222?IdSku=1565163222&idLojista=228168&tipoLojista=3P&&gad_campaignid=22788743736&gbraid=0AAAAADtAamhK3k7AxzYp4Hiclm_5zOkAn",
-  },
-  {
-    id: 98,
-    category: "casamento",
-    name: "Alexa",
-    goal: 409,
-    current: 0,
-    description: "",
-    image: "https://m.media-amazon.com/images/I/71xoR4A6q-L._AC_SL1000_.jpg",
-    storeUrl:
-      "https://www.amazon.com.br/Echo-Dot-5%C2%AA-gera%C3%A7%C3%A3o-Cor-Preta/dp/B09B8VGCR8/ref=sr_1_1?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dib=eyJ2IjoiMSJ9.14cZBgy_n6hLGjrn9NIG4vUhPEOu670jrELSqdecXonVOVyY_mscW4n7JkUTEU7SeGZFTdhYWhHnMuJ81gncDlybzNJ2WHiBQLcJFWFY1IqxpeEEVV4RXFg1Rw8piDXaf9A5ozCf5kUnxVFSU8snlojXar7sZ5w0ZTL1uP2cW6Aj-myr1PPx6rvx-wTLB8gnnT8BgU8LKGegP8tGtcDvdIA-_OCeb0zIkIyGguh9AKkgoz9rpQ9tqxPA0XSsGr-A1hxTXW7AuNkVTDoro1L-7qq67V3ajfFkyTAO9UBjir4.iI3phMqpl5yBkhAO8ngyDsYzbj1XS8H_Y3cj8y3aVk8&dib_tag=se&keywords=alexa&qid=1770607840&sr=8-1&ufe=app_do:amzn1.fos.e05b01e0-91a7-477e-a514-15a32325a6d6&th=1",
-  },
-  {
-    id: 99,
-    category: "casamento",
-    name: "Chuveiro",
-    goal: 392.64,
-    current: 0,
-    description: "Sábado é dia de tomar banho.",
-    image:
-      "https://m.magazineluiza.com.br/a-static/420x420/chuveiro-eletrico-de-parede-acqua-storm-ultra-preto-220v-lorenzetti/livencasa/158771/8b3c19c217942dbb5e393daab8675b2e.jpeg",
-    storeUrl:
-      "https://www.magazineluiza.com.br/chuveiro-eletrico-de-parede-acqua-storm-ultra-preto-220v-lorenzetti/p/ck3073f78d/cj/duxx/?&seller_id=livencasa&partner_id=83244&gad_campaignid=23341738725&gbraid=0AAAAAD4zZmTQ7DvMmg9IOaTY26GsGw6tG",
-  },
+
+
+
   {
     id: 100,
     category: "cha",
@@ -979,18 +836,7 @@ export const allGifts: Gift[] = [
     storeUrl:
       "https://www.amazon.com.br/Term%C3%B4metro-Digital-Infravermelho-Culin%C3%A1rio-Laser/dp/B0F2Z78F4J/ref=asc_df_B0F2Z78F4J?tag=googleshopp00-20&hvadid=754710229179&hvpos=&hvnetw=g&hvrand=7542002732959074299&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9196708&hvtargid=pla-2438934655905&psc=1&language=pt_BR",
   },
-  {
-    id: 101,
-    category: "casamento",
-    name: "Mesa de cabeceira",
-    goal: 396.2,
-    current: 0,
-    description: "Kit 2 mesas de cabeceira",
-    image:
-      "https://product-hub-prd.madeiramadeira.com.br/435167488/images/bca07e00-87a8-437a-829b-11d4fec822121e8fd8418b2e7e1668ebb452b6.jpg?width=700&canvas=1:1&bg-color=FFF",
-    storeUrl:
-      "https://www.madeiramadeira.com.br/kit-2-mesas-de-cabeceira-com-gaveta-channel-nature-com-off-white-fabrimoveis-435167488.html?origem=pla-435167488&utm_source=google&utm_medium=cpc&utm_content=mesas-de-cabeceira-5083&utm_term=&utm_id=22811606548&gad_source=1&gad_campaignid=22811606548&gbraid=0AAAAADr4g_F6-jsxhx2tjSn5cjXogU_iS&gclid=Cj0KCQiAhaHMBhD2ARIsAPAU_D4NLil0Be0z58IH5mJxiDF5Tm6Vrp5iwRgeZ0knjdLJu1tj7O8cdrMaAkqbEALw_wcB",
-  },
+
   {
     id: 102,
     category: "casamento",
@@ -1002,18 +848,7 @@ export const allGifts: Gift[] = [
     storeUrl:
       "https://www.amazon.com.br/escrit%C3%B3rio-ergon%C3%B4mico-independente-respir%C3%A1vel-ajust%C3%A1vel%EF%BC%88Preto/dp/B0CG8J3N2H/ref=asc_df_B0CG8J3N2H?tag=googleshopp00-20&hvadid=721185796203&hvpos=&hvnetw=g&hvrand=13589312507683787360&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9196708&hvtargid=pla-2381201824264&th=1",
   },
-  {
-    id: 103,
-    category: "casamento",
-    name: "TV",
-    goal: 1199,
-    current: 0,
-    description:
-      "Pro noivo ver o jogo do Palmeiras ou pros dias de campus online.",
-    image:
-      "https://www.lg.com/content/dam/channel/wcms/br/images/tv/55ur8750psa_bwz_essp_br_c/gallery/DZ-3.jpg",
-    imageHint: "television screen",
-  },
+
   {
     id: 104,
     category: "casamento",
@@ -1027,42 +862,8 @@ export const allGifts: Gift[] = [
     storeUrl:
       "https://www.leroymerlin.com.br/escada-aluminio-5-degraus-1,53m-120kg-prata-e-vermelho-reisam_91713286?region=outros&region_id=31000&gad_campaignid=23148513989&gbraid=0AAAAADkzLZ4Gc75A_O_dKdHf2CJsm5hIb",
   },
-  {
-    id: 105,
-    category: "casamento",
-    name: "Filtro d'água",
-    goal: 1199.9,
-    current: 0,
-    description: "Pra sobreviver à seca de Brasília.",
-    image:
-      "https://mundodosfiltros.com.br/cdn/shop/files/Star-frontal-Branco_800x.webp?v=1759934879",
-    storeUrl:
-      "https://mundodosfiltros.com.br/products/purificador-de-agua-everest-star?variant=41512844918843&country=BR&currency=BRL&gad_campaignid=23315168575&gbraid=0AAAAApGDSb7XNbPWeodt22-C0u9xGQYYE",
-  },
-  {
-    id: 107,
-    category: "casamento",
-    name: "Contribua com um valor livre",
-    goal: 5000,
-    current: 0,
-    description:
-      "Contribua com um valor livre para ajudar a realizar nossos sonhos juntos!",
-    image:
-      "https://images.unsplash.com/photo-1770773068832-acae58b52b5f?q=80&w=927&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: 108,
-    category: "casamento",
-    name: "Caixa de ferramentas",
-    goal: 109,
-    current: 0,
-    description:
-      "Pro noivo conseguir prender um quadro na parede. (spoiler: é de Drywall)",
-    image:
-      "https://cdn.leroymerlin.com.br/products/jogo_de_ferramentas_com_129_pecas_sparta_89954333_0001_1800x1800.jpg",
-    storeUrl:
-      "https://www.leroymerlin.com.br/kit-de-ferramentas-sparta-aco-carbono-com-maleta-129-pecas_89954333?store_code=28&gad_campaignid=23148513989&gbraid=0AAAAADkzLZ7fivual9pXHPMKMnX5xWNLR",
-  },
+
+
   {
     id: 109,
     category: "casamento",
@@ -1075,36 +876,8 @@ export const allGifts: Gift[] = [
     storeUrl:
       "https://www.mercadolivre.com.br/parafusadeira-e-furadeira-a-bateria-li-ion-wap-wf-12k32-carregador-com-maleta-e-kit-de-11-acessorios/p/MLB46189259?pdp_filters=item_id:MLB4361263765&from=gshop&matt_tool=56938998&matt_internal_campaign_id=&matt_word=&matt_source=google&matt_campaign_id=22090193672&matt_ad_group_id=174661944604&matt_match_type=&matt_network=g&matt_device=c&matt_creative=727914178240&matt_keyword=&matt_ad_position=&matt_ad_type=pla&matt_merchant_id=735125422&matt_product_id=MLB46189259-product&matt_product_partition_id=2388009257986&matt_target_id=aud-1966857867496:pla-2388009257986&cq_src=google_ads&cq_cmp=22090193672&cq_net=g&cq_plt=gp&cq_med=pla&gad_campaignid=22090193672&gbraid=0AAAAAD93qcA0Qxyf19azgIUHkuI5AAOTu",
   },
-  {
-    id: 110,
-    category: "casamento",
-    name: "Taxa para noiva JOGAR o buquê para sua namorada.",
-    goal: 250,
-    current: 0,
-    description: "💍",
-    image:
-      "https://images.unsplash.com/photo-1758810409984-aba17272627b?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: 111,
-    category: "casamento",
-    name: "Taxa para noiva NÃO jogar o buquê para sua namorada.",
-    goal: 500,
-    current: 0,
-    description: "💍",
-    image:
-      "https://images.unsplash.com/photo-1747102098766-6ea49bcd77fa?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: 112,
-    category: "casamento",
-    name: "Ganhe um agradecimento especial dos noivos.",
-    goal: 500,
-    current: 0,
-    description: "Tamo Junto!",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm6RB3XFtnwJQH-iVHde2kqGB2lSg0colQUg&s",
-  },
+
+
   {
     id: 113,
     category: "casamento",
@@ -1116,17 +889,7 @@ export const allGifts: Gift[] = [
     storeUrl:
       "https://www.amazon.com.br/Microplane-40020-GRATER-ZESTER/dp/B00004S7V8/ref=asc_df_B00004S7V8?tag=googleshopp00-20&hvadid=709964506241&hvpos=&hvnetw=g&hvrand=16268248562095527595&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9198389&hvtargid=pla-387297469372&psc=1&language=pt_BR",
   },
-  {
-    id: 114,
-    category: "casamento",
-    name: "Cesto de Roupas.",
-    goal: 84.24,
-    current: 0,
-    description: "Bagunça organizada",
-    image: "https://m.media-amazon.com/images/I/51Ch-xiRjjL._AC_SL1500_.jpg",
-    storeUrl:
-      "https://www.amazon.com.br/Organizador-Lavanderia-Dobr%C3%A1vel-Port%C3%A1til-Divis%C3%B3rias/dp/B0CL787GLD/ref=asc_df_B0CL787GLD?tag=googleshopp00-20&hvadid=709968340963&hvpos=&hvnetw=g&hvrand=743882835395488326&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9198389&hvtargid=pla-2299741106393&psc=1&language=pt_BR",
-  },
+
   {
     id: 115,
     category: "cha",
@@ -1138,24 +901,8 @@ export const allGifts: Gift[] = [
     storeUrl:
       "https://www.amazon.com.br/Conjunto-Peneiras-Coador-Resistentes-Cozinha/dp/B0D4JMMJ9V/ref=asc_df_B0D4JMMJ9V?tag=googleshopp00-20&hvadid=709964506295&hvpos=&hvnetw=g&hvrand=880991048014220565&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9198389&hvtargid=pla-2323403493036&psc=1&language=pt_BR",
   },
-  {
-    id: 116,
-    category: "casamento",
-    name: "Mala para lua de mel.",
-    goal: 143.1,
-    current: 0,
-    description: "Trazer vários souvenirs",
-    image: "https://m.media-amazon.com/images/I/510Yrajv+WL._AC_SL1000_.jpg",
-  },
-  {
-    id: 117,
-    category: "casamento",
-    name: "Mala para lua de mel.",
-    goal: 143.1,
-    current: 0,
-    description: "Trazer vários souvenirs",
-    image: "https://m.media-amazon.com/images/I/51EKS337q6L._AC_SL1000_.jpg",
-  },
+
+
   {
     id: 118,
     category: "casamento",
@@ -1200,17 +947,7 @@ export const allGifts: Gift[] = [
     storeUrl:
       "https://www.amazon.com.br/WAP-FLOW-TURBO-Ventilador-Velocidades/dp/B0BT4Z9LZB/ref=sr_1_34?dib=eyJ2IjoiMSJ9.BQZS4_3fq_LYySH5Zp2bKZC_A00Sf3s6ehjkvJx73L8bwZh8V-rZu9W5ff76n9VLkf7dE9ByJblv7r3CgBUHwHUCSp67qxgC8t8APBVWAIpJJXoYUYRAkjUZpnsT3csFEcvSmQZaXC9iUlD9jssW2PFpe6ZjOymT3sG0NmzOvzw.XOhk9iTt0ue7VeCuRNCFPS1g7vz_JYrRMBN3z5WFjuM&dib_tag=se&qid=1771027028&s=home&sr=1-34&ufe=app_do:amzn1.fos.fcd6d665-32ba-4479-9f21-b774e276a678&xpid=BfyVrD9_kXNvL",
   },
-  {
-    id: 122,
-    category: "casamento",
-    name: "Lixeira automática.",
-    goal: 79.9,
-    current: 0,
-    description: "Ok google",
-    image: "https://m.media-amazon.com/images/I/61AHIRNXBBL._SL1200_.jpg",
-    storeUrl:
-      "https://www.amazon.com.br/Lixeira-litros-autom%C3%A1tica-inteligente-aproxima%C3%A7%C3%A3o/dp/B0CLDGBYGL/ref=sr_1_213?dib=eyJ2IjoiMSJ9.Lt8X9aiZsjPNxN5TocuihD6qNi8Key05kMi9pAfDJC5d7RvNQJImCetiDI2OehHHE8k3lcv7yzy5tkAqdD-MXhP3DSwGo7X3NDjT3hqXHh8h42V8aQSGpyopAfCAhfcC3rZ90B3OJJUjb_HpxnNaf-zmL7MWHeai19JJRD_IDFc.wIAkcSYPTNNYgWzmK937C7XAtXrN61XggTI0u7zdH5o&dib_tag=se&qid=1771027448&s=home&sr=1-213&ufe=app_do:amzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9&xpid=BfyVrD9_kXNvL&th=1",
-  },
+
   {
     id: 123,
     category: "cha",
@@ -1244,17 +981,7 @@ export const allGifts: Gift[] = [
     storeUrl:
       "https://www.amazon.com.br/Esp%C3%A1tula-Pr%C3%A1tica-Mimo-Style-ASA1619/dp/B076JLCYFR/ref=pd_bxgy_d_sccl_1/143-0154244-4098363?pd_rd_w=TeQU4&content-id=amzn1.sym.47455c19-0288-451a-a02f-0d639e613616&pf_rd_p=47455c19-0288-451a-a02f-0d639e613616&pf_rd_r=N8451EZRB0BV1MPJ2DVF&pd_rd_wg=fOiWu&pd_rd_r=bbe8144e-48e7-48bc-a519-bf592a93ebb8&pd_rd_i=B076JLCYFR&psc=1",
   },
-  {
-    id: 126,
-    category: "casamento",
-    name: "Jogo de prato simples.",
-    goal: 150.37,
-    current: 0,
-    description: "Os pratos do dia a dia.",
-    image: "https://m.media-amazon.com/images/I/51P4Qbl1PcL._AC_SL1000_.jpg",
-    storeUrl:
-      "https://www.amazon.com.br/Duralex-1643-Aparelho-Jantar-Incolor/dp/B076X6D54J/ref=asc_df_B076X6D54J?tag=googleshopp00-20&hvadid=709964506244&hvpos=&hvnetw=g&hvrand=6430091682400716820&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9197471&hvtargid=pla-810816540909&psc=1&language=pt_BR",
-  },
+
   {
     id: 127,
     category: "cha",
@@ -1422,72 +1149,7 @@ export const allGifts: Gift[] = [
     storeUrl:
       "https://www.amazon.com.br/Mimo-Style-AFP350-CAFETEIRA-FRANCESA/dp/B07TBHLGQT/ref=asc_df_B07TBHLGQT?tag=googleshopp00-20&hvadid=709964506256&hvpos=&hvnetw=g&hvrand=12972529490692218585&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9197471&hvtargid=pla-902619401228&language=pt_BR&th=1",
   },
-  {
-    id: 142,
-    category: "casamento",
-    name: "Passeio na Lua de Mel",
-    goal: 100,
-    current: 0,
-    description: "Ajude-nos a ter uma lua de mel inesquecível!",
-    image:
-      "https://fastly.picsum.photos/id/49/1280/792.jpg?hmac=NnUJy0O9-pXHLmY2loqVs2pJmgw9xzuixgYOk4ALCXU",
-    imageHint: "honeymoon travel",
-  },
-  {
-    id: 143,
-    category: "casamento",
-    name: "Passeio na Lua de Mel",
-    goal: 100,
-    current: 0,
-    description: "Ajude-nos a ter uma lua de mel inesquecível!",
-    image:
-      "https://fastly.picsum.photos/id/49/1280/792.jpg?hmac=NnUJy0O9-pXHLmY2loqVs2pJmgw9xzuixgYOk4ALCXU",
-    imageHint: "honeymoon travel",
-  },
-  {
-    id: 144,
-    category: "casamento",
-    name: "Passeio na Lua de Mel",
-    goal: 100,
-    current: 0,
-    description: "Ajude-nos a ter uma lua de mel inesquecível!",
-    image:
-      "https://fastly.picsum.photos/id/49/1280/792.jpg?hmac=NnUJy0O9-pXHLmY2loqVs2pJmgw9xzuixgYOk4ALCXU",
-    imageHint: "honeymoon travel",
-  },
-  {
-    id: 145,
-    category: "casamento",
-    name: "Passeio na Lua de Mel",
-    goal: 100,
-    current: 0,
-    description: "Ajude-nos a ter uma lua de mel inesquecível!",
-    image:
-      "https://fastly.picsum.photos/id/49/1280/792.jpg?hmac=NnUJy0O9-pXHLmY2loqVs2pJmgw9xzuixgYOk4ALCXU",
-    imageHint: "honeymoon travel",
-  },
-  {
-    id: 146,
-    category: "casamento",
-    name: "Passeio na Lua de Mel",
-    goal: 100,
-    current: 0,
-    description: "Ajude-nos a ter uma lua de mel inesquecível!",
-    image:
-      "https://fastly.picsum.photos/id/49/1280/792.jpg?hmac=NnUJy0O9-pXHLmY2loqVs2pJmgw9xzuixgYOk4ALCXU",
-    imageHint: "honeymoon travel",
-  },
-  {
-    id: 147,
-    category: "casamento",
-    name: "Passeio na Lua de Mel",
-    goal: 100,
-    current: 0,
-    description: "Ajude-nos a ter uma lua de mel inesquecível!",
-    image:
-      "https://fastly.picsum.photos/id/49/1280/792.jpg?hmac=NnUJy0O9-pXHLmY2loqVs2pJmgw9xzuixgYOk4ALCXU",
-    imageHint: "honeymoon travel",
-  },
+
   {
     id: 148,
     category: "casamento",
@@ -1521,49 +1183,9 @@ export const allGifts: Gift[] = [
       "https://fastly.picsum.photos/id/49/1280/792.jpg?hmac=NnUJy0O9-pXHLmY2loqVs2pJmgw9xzuixgYOk4ALCXU",
     imageHint: "honeymoon travel",
   },
-  {
-    id: 151,
-    category: "casamento",
-    name: "Passeio na Lua de Mel",
-    goal: 100,
-    current: 0,
-    description: "Ajude-nos a ter uma lua de mel inesquecível!",
-    image:
-      "https://fastly.picsum.photos/id/49/1280/792.jpg?hmac=NnUJy0O9-pXHLmY2loqVs2pJmgw9xzuixgYOk4ALCXU",
-    imageHint: "honeymoon travel",
-  },
-  {
-    id: 152,
-    category: "casamento",
-    name: "Cota para Passeio na Lua de Mel",
-    goal: 500,
-    current: 0,
-    description: "Ajude-nos a ter uma lua de mel inesquecível!",
-    image:
-      "https://fastly.picsum.photos/id/49/1280/792.jpg?hmac=NnUJy0O9-pXHLmY2loqVs2pJmgw9xzuixgYOk4ALCXU",
-    imageHint: "honeymoon travel",
-  },
-  {
-    id: 153,
-    category: "casamento",
-    name: "Cota para Aluguel de carro na Lua de Mel",
-    goal: 500,
-    current: 0,
-    description: "Pra exploramos o mundo.",
-    image:
-      "https://cdn0.matrimonio.com/vendor/2268/3_2/960/jpg/mzr-3687_2_282268-171283978178315.jpeg",
-    imageHint: "carro",
-  },
-  {
-    id: 154,
-    category: "casamento",
-    name: "Cota para Diária noite de núpcias",
-    goal: 334.37,
-    current: 0,
-    description: " ",
-    image:
-      "https://images.trvl-media.com/lodging/3000000/2060000/2050600/2050555/9fc56328.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill",
-  },
+
+
+
   {
     id: 155,
     category: "casamento",
@@ -1574,27 +1196,6 @@ export const allGifts: Gift[] = [
     image:
       "https://images.unsplash.com/photo-1621280336935-ed7cae618aac?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
-  {
-    id: 156,
-    category: "casamento",
-    name: "Euros para a viagem de lua de mel.",
-    goal: 300,
-    current: 0,
-    description: "O cambio tá maluco",
-    image:
-      "https://images.unsplash.com/photo-1621280336935-ed7cae618aac?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: 157,
-    category: "casamento",
-    name: "Cota para Escrivaninha com gaveteiro",
-    goal: 340,
-    current: 0,
-    description: "Pra montar nosso Home Studio.",
-    image:
-      "https://product-hub-prd.madeiramadeira.com.br/665288/images/d851b049-e741-4814-a625-4f93bc2c2850adracompace66528816600x600.jpg?width=700&canvas=1:1&bg-color=FFF",
-    imageHint: "mesa e gaveteiro.",
-    storeUrl:
-      "https://www.madeiramadeira.com.br/kit-2-pecas-com-1-escrivaninha-e-1-gaveteiro-4-gavetas-kuadra-665288.html",
-  },
+
 ];
+
